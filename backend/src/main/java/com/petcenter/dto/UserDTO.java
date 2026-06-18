@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Data
 @NoArgsConstructor
@@ -18,6 +19,7 @@ public class UserDTO {
     private String apellido;
     private String email;
     private String telefono;
+    @JsonIgnore
     private String password;
     private Role role;
     private Boolean activo;

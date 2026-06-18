@@ -63,18 +63,24 @@ public class SecurityConfig {
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/api/auth/**").permitAll()
-                        .requestMatchers("/api/users/register").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/products/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/categories/**").permitAll()
-                        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
-                        .requestMatchers("/api/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/api/veterinarian/**").hasRole("VETERINARIO")
-                        .requestMatchers("/api/receptionist/**").hasRole("RECEPCIONISTA")
-                        .anyRequest().authenticated()
+                    .requestMatchers("/api/auth/**").permitAll()
+                    .requestMatchers("/api/users/register").permitAll()
+                    // Allow listing users and fetching by email without auth for convenience
+                    .requestMatchers(HttpMethod.GET, "/api/users/**").permitAll()
+                    .requestMatchers(HttpMethod.GET, "/api/products/**").permitAll()
+                    .requestMatchers(HttpMethod.GET, "/api/categories/**").permitAll()
+                    .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
+                    .requestMatchers("/h2-console/**").permitAll()
+                    .requestMatchers("/api/admin/**").hasRole("ADMIN")
+                    .requestMatchers("/api/veterinarian/**").hasRole("VETERINARIO")
+                    .requestMatchers("/api/receptionist/**").hasRole("RECEPCIONISTA")
+                    .anyRequest().authenticated()
                 );
 
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+
+        // Allow H2 console frames
+        http.headers(headers -> headers.frameOptions().disable());
 
         return http.build();
     }
