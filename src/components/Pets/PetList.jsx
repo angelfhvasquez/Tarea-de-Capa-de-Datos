@@ -22,9 +22,6 @@ import {
     Alert
 } from '@mui/material';
 import { motion } from 'framer-motion';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
-import AddIcon from '@mui/icons-material/Add';
 
 export const PetList = () => {
     const { user } = useAuth();
@@ -129,10 +126,9 @@ export const PetList = () => {
                     <Button
                         variant="contained"
                         color="primary"
-                        startIcon={<AddIcon />}
                         onClick={() => handleOpenDialog()}
                     >
-                        Agregar Mascota
+                        ➕ Agregar Mascota
                     </Button>
                 </Box>
 
@@ -164,15 +160,17 @@ export const PetList = () => {
                                                 size="small"
                                                 color="primary"
                                                 onClick={() => handleOpenDialog(pet)}
+                                                aria-label="editar"
                                             >
-                                                <EditIcon />
+                                                <span role="img" aria-hidden>✏️</span>
                                             </IconButton>
                                             <IconButton
                                                 size="small"
                                                 color="error"
                                                 onClick={() => handleDelete(pet.id)}
+                                                aria-label="eliminar"
                                             >
-                                                <DeleteIcon />
+                                                <span role="img" aria-hidden>🗑️</span>
                                             </IconButton>
                                         </TableCell>
                                     </TableRow>

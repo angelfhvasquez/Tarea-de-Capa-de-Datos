@@ -13,9 +13,7 @@ import {
     XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
 import { motion } from 'framer-motion';
-import EventNoteIcon from '@mui/icons-material/EventNote';
-import StorefrontIcon from '@mui/icons-material/Storefront';
-import InventoryIcon from '@mui/icons-material/Inventory';
+// Reemplazamos los iconos por emojis para evitar errores de compatibilidad
 
 export const Dashboard = () => {
     const [stats, setStats] = useState(null);
@@ -49,21 +47,31 @@ export const Dashboard = () => {
         return <Typography>Error al cargar datos</Typography>;
     }
 
-    const StatCard = ({ icon: Icon, title, value, color }) => (
-        <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
-            <Paper sx={{ p: 3, backgroundColor: color, color: 'white' }}>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                    <Icon sx={{ fontSize: 40 }} />
-                    <Box>
-                        <Typography variant="body2">{title}</Typography>
-                        <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
-                            {value}
-                        </Typography>
+    const StatCard = ({ title, value, color }) => {
+        const emojiMap = {
+            'Total de Citas': '📅',
+            'Citas Confirmadas': '✅',
+            'Total de Ventas': '💰',
+            'Productos Disponibles': '🛒'
+        };
+        const emoji = emojiMap[title] || '📊';
+
+        return (
+            <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
+                <Paper sx={{ p: 3, backgroundColor: color, color: 'white' }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                        <Typography variant="h3">{emoji}</Typography>
+                        <Box>
+                            <Typography variant="body2">{title}</Typography>
+                            <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
+                                {value}
+                            </Typography>
+                        </Box>
                     </Box>
-                </Box>
-            </Paper>
-        </motion.div>
-    );
+                </Paper>
+            </motion.div>
+        );
+    };
 
     const appointmentData = [
         { name: 'Programadas', value: stats.citasPendientes },
@@ -83,7 +91,6 @@ export const Dashboard = () => {
                 <Grid container spacing={3} sx={{ mb: 4 }}>
                     <Grid item xs={12} sm={6} md={3}>
                         <StatCard
-                            icon={EventNoteIcon}
                             title="Total de Citas"
                             value={stats.totalCitas}
                             color="#3f51b5"
@@ -91,7 +98,6 @@ export const Dashboard = () => {
                     </Grid>
                     <Grid item xs={12} sm={6} md={3}>
                         <StatCard
-                            icon={EventNoteIcon}
                             title="Citas Confirmadas"
                             value={stats.citasConfirmadas}
                             color="#4caf50"
@@ -99,7 +105,6 @@ export const Dashboard = () => {
                     </Grid>
                     <Grid item xs={12} sm={6} md={3}>
                         <StatCard
-                            icon={StorefrontIcon}
                             title="Total de Ventas"
                             value={stats.totalVentas}
                             color="#ff9800"
@@ -107,7 +112,6 @@ export const Dashboard = () => {
                     </Grid>
                     <Grid item xs={12} sm={6} md={3}>
                         <StatCard
-                            icon={InventoryIcon}
                             title="Productos Disponibles"
                             value={stats.productosDisponibles}
                             color="#e91e63"

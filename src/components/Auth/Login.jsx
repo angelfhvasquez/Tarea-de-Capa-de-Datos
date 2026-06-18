@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import {
     Container,
@@ -109,7 +109,7 @@ export const Login = () => {
 
                             <Typography sx={{ textAlign: 'center' }}>
                                 ¿No tienes cuenta?{' '}
-                                <Link href="/register" sx={{ cursor: 'pointer', fontWeight: 'bold' }}>
+                                <Link component={RouterLink} to="/register" sx={{ cursor: 'pointer', fontWeight: 'bold' }}>
                                     Regístrate
                                 </Link>
                             </Typography>

@@ -15,7 +15,6 @@ import {
     MenuItem
 } from '@mui/material';
 import { motion } from 'framer-motion';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 export const ProductList = ({ onAddToCart }) => {
     const [products, setProducts] = useState([]);
@@ -113,11 +112,10 @@ export const ProductList = ({ onAddToCart }) => {
                                                 fullWidth
                                                 variant="contained"
                                                 color="primary"
-                                                startIcon={<AddShoppingCartIcon />}
                                                 onClick={() => onAddToCart(product)}
                                                 disabled={product.stock === 0}
                                             >
-                                                Agregar al Carrito
+                                                🛒 Agregar al Carrito
                                             </Button>
                                         </CardActions>
                                     </Card>

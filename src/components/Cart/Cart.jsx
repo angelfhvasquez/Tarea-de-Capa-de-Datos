@@ -20,7 +20,6 @@ import {
     Alert
 } from '@mui/material';
 import { motion } from 'framer-motion';
-import DeleteIcon from '@mui/icons-material/Delete';
 
 export const Cart = ({ cartItems, onRemoveItem, onCheckout }) => {
     const { user } = useAuth();
@@ -83,10 +82,9 @@ export const Cart = ({ cartItems, onRemoveItem, onCheckout }) => {
                                                 <Button
                                                     size="small"
                                                     color="error"
-                                                    startIcon={<DeleteIcon />}
                                                     onClick={() => onRemoveItem(item.id)}
                                                 >
-                                                    Eliminar
+                                                    🗑️ Eliminar
                                                 </Button>
                                             </TableCell>
                                         </TableRow>

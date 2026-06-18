@@ -27,9 +27,6 @@ import {
     InputLabel
 } from '@mui/material';
 import { motion } from 'framer-motion';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
-import AddIcon from '@mui/icons-material/Add';
 
 export const AppointmentList = () => {
     const { user } = useAuth();
@@ -141,10 +138,9 @@ export const AppointmentList = () => {
                     <Button
                         variant="contained"
                         color="primary"
-                        startIcon={<AddIcon />}
                         onClick={() => handleOpenDialog()}
                     >
-                        Nueva Cita
+                        ➕ Nueva Cita
                     </Button>
                 </Box>
 
@@ -176,15 +172,17 @@ export const AppointmentList = () => {
                                                 size="small"
                                                 color="primary"
                                                 onClick={() => handleOpenDialog(apt)}
+                                                aria-label="editar"
                                             >
-                                                <EditIcon />
+                                                <span role="img" aria-hidden>✏️</span>
                                             </IconButton>
                                             <IconButton
                                                 size="small"
                                                 color="error"
                                                 onClick={() => handleCancel(apt.id)}
+                                                aria-label="eliminar"
                                             >
-                                                <DeleteIcon />
+                                                <span role="img" aria-hidden>🗑️</span>
                                             </IconButton>
                                         </TableCell>
                                     </TableRow>
