@@ -11,8 +11,6 @@ import {
     MenuItem,
     Avatar
 } from '@mui/material';
-// Removed icon imports because some MUI icon packages may resolve as objects in this setup.
-// Keep Navbar functionality simple and avoid runtime invalid React element errors.
 
 export const Navbar = () => {
     const { user, logout, isAuthenticated } = useAuth();
@@ -50,7 +48,7 @@ export const Navbar = () => {
                             color="inherit"
                             onClick={() => navigate('/dashboard')}
                         >
-                            Dashboard
+                            📊 Dashboard
                         </Button>
                         <Button
                             color="inherit"
@@ -89,7 +87,7 @@ export const Navbar = () => {
                                 {user?.nombre} {user?.apellido}
                             </MenuItem>
                             <MenuItem onClick={handleLogout}>
-                                Cerrar Sesión
+                                🔓 Cerrar Sesión
                             </MenuItem>
                         </Menu>
                     </Box>

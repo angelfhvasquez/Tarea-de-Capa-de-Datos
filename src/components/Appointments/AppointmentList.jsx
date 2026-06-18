@@ -172,17 +172,15 @@ export const AppointmentList = () => {
                                                 size="small"
                                                 color="primary"
                                                 onClick={() => handleOpenDialog(apt)}
-                                                aria-label="editar"
                                             >
-                                                <span role="img" aria-hidden>✏️</span>
+                                                ✏️
                                             </IconButton>
                                             <IconButton
                                                 size="small"
                                                 color="error"
                                                 onClick={() => handleCancel(apt.id)}
-                                                aria-label="eliminar"
                                             >
-                                                <span role="img" aria-hidden>🗑️</span>
+                                                🗑️
                                             </IconButton>
                                         </TableCell>
                                     </TableRow>

@@ -160,17 +160,15 @@ export const PetList = () => {
                                                 size="small"
                                                 color="primary"
                                                 onClick={() => handleOpenDialog(pet)}
-                                                aria-label="editar"
                                             >
-                                                <span role="img" aria-hidden>✏️</span>
+                                                ✏️
                                             </IconButton>
                                             <IconButton
                                                 size="small"
                                                 color="error"
                                                 onClick={() => handleDelete(pet.id)}
-                                                aria-label="eliminar"
                                             >
-                                                <span role="img" aria-hidden>🗑️</span>
+                                                🗑️
                                             </IconButton>
                                         </TableCell>
                                     </TableRow>
