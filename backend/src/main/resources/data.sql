@@ -22,11 +22,11 @@ INSERT INTO products (nombre, descripcion, precio, stock, fecha_creacion, ultima
 
 -- Insertar usuarios de ejemplo
 INSERT INTO users (nombre, apellido, email, telefono, password, role, activo, fecha_registro, ultima_actualizacion) VALUES
-('Admin', 'Sistema', 'admin@petcenter.com', '555-0001', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcg7b3XeKeUxWdeS86E36P4/1Cm', 'ADMIN', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-('Juan', 'Pérez', 'juan@example.com', '555-0002', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcg7b3XeKeUxWdeS86E36P4/1Cm', 'CLIENTE', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-('María', 'García', 'maria@example.com', '555-0003', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcg7b3XeKeUxWdeS86E36P4/1Cm', 'CLIENTE', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-('Dr. Carlos', 'López', 'carlos@petcenter.com', '555-0004', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcg7b3XeKeUxWdeS86E36P4/1Cm', 'VETERINARIO', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-('Ana', 'Rodríguez', 'ana@petcenter.com', '555-0005', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcg7b3XeKeUxWdeS86E36P4/1Cm', 'RECEPCIONISTA', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+('Admin', 'Sistema', 'admin@petcenter.com', '555-0001', '$2b$10$1LenLjR/XQUcjsipU8lROuDEIN52obSw98RAzlVGB0LSeHNj3n9Qe', 'ADMIN', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('Juan', 'Pérez', 'juan@example.com', '555-0002', '$2b$10$1LenLjR/XQUcjsipU8lROuDEIN52obSw98RAzlVGB0LSeHNj3n9Qe', 'CLIENTE', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('María', 'García', 'maria@example.com', '555-0003', '$2b$10$1LenLjR/XQUcjsipU8lROuDEIN52obSw98RAzlVGB0LSeHNj3n9Qe', 'CLIENTE', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('Dr. Carlos', 'López', 'carlos@petcenter.com', '555-0004', '$2b$10$1LenLjR/XQUcjsipU8lROuDEIN52obSw98RAzlVGB0LSeHNj3n9Qe', 'VETERINARIO', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('Ana', 'Rodríguez', 'ana@petcenter.com', '555-0005', '$2b$10$1LenLjR/XQUcjsipU8lROuDEIN52obSw98RAzlVGB0LSeHNj3n9Qe', 'RECEPCIONISTA', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
 -- Insertar mascotas
 INSERT INTO pets (nombre, especie, raza, fecha_nacimiento, peso, color, notas, fecha_registro, ultima_actualizacion, propietario_id) VALUES
